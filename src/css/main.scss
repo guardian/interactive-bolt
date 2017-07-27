@@ -7,9 +7,24 @@
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
 
+$sportsColours: (
+
+	track: #1c6326,
+	football: #cc2b12,
+	tennis: #ffbb00
+
+);
+
 .element-atom,
 .interactive-atom {
     margin: 0 !important;
+}
+
+.interactive-atom svg {
+	transform: rotate(-45deg);
+	display: block;
+	margin: auto;
+	margin-bottom: 128px;
 }
 
 .gs-container {
@@ -60,4 +75,22 @@
 	stroke-width: 1;
 	stroke: #333;
 	fill: none;
+}
+
+
+.bolt-circle {
+
+	fill: #bdbdbd;
+	fill-opacity: 0.25;
+
+	@each $sport, $colour in $sportsColours {
+		&.bolt-circle--#{$sport} {
+			fill: $colour;
+			fill-opacity: 0.8;
+		}
+	}
+
+	&.bolt-circle--track {
+		fill-opacity: 0.8;
+	}
 }

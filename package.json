@@ -10,7 +10,8 @@
     "url": "gulp url",
     "postinstall": "bower install",
     "deploylive": "gulp deploylive",
-    "deploypreview": "gulp deploypreview"
+    "deploypreview": "gulp deploypreview",
+    "clean": "node_modules/.bin/babel-node --presets es2015 src/server/clean_salaries.js"
   },
   "author": "",
   "license": "ISC",
@@ -51,7 +52,10 @@
     "webpack2-stream-watch": "^3.2.2"
   },
   "dependencies": {
+    "csv-parse": "^1.2.1",
+    "csv-stringify": "^1.0.4",
     "d3": "^4.10.0",
+    "interactive-scatterplots": "github:guardian/interactive-scatterplots",
     "promise-polyfill": "^6.0.2",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
