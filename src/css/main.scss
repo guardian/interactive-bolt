@@ -1,0 +1,63 @@
+@import "mq";
+@import "fonts";
+
+// Uncomment for embeds
+//@import "embed";
+
+// Uncomment for full screen (including immersive article main media)
+//@import "fullscreen";
+
+.element-atom,
+.interactive-atom {
+    margin: 0 !important;
+}
+
+.gs-container {
+	padding: 0 !important;
+}
+
+.bolt-scroller {
+	height: 100vh;
+	margin: auto;
+	width: 100%;
+	overflow-y: scroll;
+}
+
+.bolt-usain {
+	width: 20px;
+	height: 20px;
+	border-radius: 3000px;
+	background: red;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transition: transform 9.58s linear;
+}
+
+.bolt-countdown {
+	width: 100%;
+	text-align: center;
+	@include fs-header(4);
+	font-size: 40px;
+	position: absolute;
+	top: 400px;
+	pointer-events: none;
+}
+
+.bolt-scroller__endless {
+	height: 100vh;
+	max-height: calc(50 * 600px);
+	width: 100%;
+	background: #a60947;
+}
+
+.bolt-result {
+	width: 96%;
+	height: 400px;
+}
+
+.bolt-result__line {
+	stroke-width: 1;
+	stroke: #333;
+	fill: none;
+}
