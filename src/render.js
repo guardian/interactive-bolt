@@ -40,5 +40,5 @@ export async function render() {
  //        truncate: 10
  //    });
 
-    return mainTemplate + plot;
+    return mainTemplate;
 }

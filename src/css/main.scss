@@ -20,15 +20,31 @@ $sportsColours: (
     margin: 0 !important;
 }
 
-.interactive-atom svg {
-	transform: rotate(-45deg);
-	display: block;
-	margin: auto;
-	margin-bottom: 128px;
+.bolt-rt-subhead {
+	@include fs-textSans(3);
+	color: #767676;
+	line-height: 18px;
+	padding-bottom: 20px;
+	margin: 0;
 }
 
-.gs-container {
-	padding: 0 !important;
+.bolt-rt-rsg {
+	@include fs-headline(2);
+	//min-height: 28px;
+}
+
+.bolt-rt-title {
+	@include fs-header(3);
+	padding-bottom: 3px;
+	margin-top: 24px;
+}
+
+.bolt-rt {
+	margin-top: 12px;
+}
+
+p {
+	max-width: 620px;
 }
 
 .bolt-scroller {
@@ -36,6 +52,15 @@ $sportsColours: (
 	margin: auto;
 	width: 100%;
 	overflow-y: scroll;
+}
+
+.bolt-rt-legend__sq {
+	fill: url(#bolt-rt-hatch);
+}
+
+.bolt-rt-legend__label {
+	@include fs-textSans(3);
+	font-style: italic;
 }
 
 .bolt-usain {
@@ -57,6 +82,19 @@ $sportsColours: (
 	position: absolute;
 	top: 400px;
 	pointer-events: none;
+	box-sizing: content-box;
+}
+
+.bolt-rt-container {
+	width: 100%;
+	max-width: 620px;
+	margin: auto;
+	position: relative;
+}
+
+.bolt-rt-slomo {
+	@include fs-header(2);
+	display: inline-block; padding-left: 6px;
 }
 
 .bolt-scroller__endless {
@@ -71,16 +109,190 @@ $sportsColours: (
 	height: 400px;
 }
 
+.bolt-rt-grid__line {
+	stroke: #bdbdbd;
+	stroke-dasharray: none;//1,1;
+	stroke-width: 1;
+
+	// &.bolt-rt-grid__line--strong {
+	// 	stroke-dasharray: none;
+	// 	stroke-width: 2;
+	// }
+}
+
+.bolt-rt-grid__label {
+	@include fs-textSans(3);
+	text-anchor: middle;
+	fill: #767676;
+
+	&.bolt-rt-grid__label--left {
+		text-anchor: start;
+	}
+}
+
 .bolt-result__line {
 	stroke-width: 1;
 	stroke: #333;
 	fill: none;
 }
 
+.bolt-rt-time {
+	fill: #951c55;
+	@include fs-textSans(3);
+	text-anchor: end;
+	// paint-order: stroke;
+	// stroke: white;
+	// stroke-width: 4px;
+
+	&.bolt-rt-time--usain {
+
+		fill: #951c55;
+		//font-weight: bold;
+	}
+}
+
+.bolt-rt {
+	width: 100%;
+	height: 400px;
+	display: block;
+}
+
+.bolt-rt-timekeeper {
+	stroke: #333;
+	stroke-width: 0;
+}
+
+.bolt-rt-buttons {
+
+	display: block;
+
+	margin-top: 18px;
+
+	@include mq($from: desktop) {
+
+		margin-top: 12px;
+		display: inline-block;
+		position: absolute;
+		left: calc(50% - 130px);
+	}
+}
+
+.bolt-rt-button {
+
+	position: relative;
+	top: -2px;
+	outline: none;
+
+	border-radius: 42px;
+	background: #951c55;
+	cursor: pointer;
+	@include fs-textSans(3);
+	color: #fff;
+	padding: 6px 12px 4px 12px;
+	border: none;
+	margin-bottom: 12px;
+
+	&:hover {
+		background: #ffbb00;
+	}
+
+	&.bolt-rt-replay {
+
+	}
+
+}
+
+.bolt-rt-runner {
+
+	stroke: #951c55;
+	stroke-width: 4;
+	stroke-opacity: 0;
+
+	&.bolt-rt-tail {
+		//stroke-linecap: round;
+		//stroke-dasharray: 0,5;
+		stroke-opacity: 1;
+	}
+
+	&.bolt-rt-tail--usain {
+		stroke: #951c55;
+	}
+	&.bolt-rt-filled {
+	}
+
+}
+
+.bolt-rt-tiny {
+	@include fs-textSans(2);
+	color: #767676;
+
+	margin-bottom: 24px;
+}
+
+.bolt-rt-false {
+	fill: url(#bolt-rt-hatch);
+	stroke: none;
+}
+
+@keyframes pulse {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.2);
+	}
+}
+
+@keyframes shrink {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0.4);
+	}
+}
+
+.bolt-rt-countdown {
+	background: #951c55;
+	width: 32px;
+	height: 32px;
+	padding: 8px;
+	text-align: center;
+	vertical-align: center;
+	border-radius: 32px;
+	color: white;
+	border-color: #951c55;
+	transform: scale(1);
+	display: inline-block;
+
+	//position: absolute;
+	//top: 280px;
+	//left: 37%;
+
+	opacity: 1;
+
+	@include fs-header(5);
+		line-height: 34px;
+
+	transition: transform 0.05s ease-in-out;
+
+	&.bolt-rt--animated {
+		// animation-duration: 0.8s;
+		// animation-name: pulse;
+		// animation-iteration-count: 1;
+		// animation-direction: normal;
+		transition: transform 0.2s ease-in-out;
+		transform: scale(1.2);
+	}
+
+
+	&.bolt-rt-shrunk {
+	}
+}
 
 .bolt-circle {
 
-	fill: #bdbdbd;
+	fill: #767676;
 	fill-opacity: 0.25;
 
 	@each $sport, $colour in $sportsColours {
@@ -93,4 +305,18 @@ $sportsColours: (
 	&.bolt-circle--track {
 		fill-opacity: 0.8;
 	}
+}
+
+.bolt-rt-name {
+	@include fs-textSans(3);
+
+	&.bolt-rt-name--usain {
+		//font-weight: bold;
+	}
+}
+
+.bolt-rt--hidden {
+
+	transition: opacity 0.075s linear;
+	//opacity: 0;
 }
